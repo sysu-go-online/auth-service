@@ -15,10 +15,8 @@ var upgrader = websocket.Upgrader{}
 func GetServer() *negroni.Negroni {
 	r := mux.NewRouter()
 
-	r.Handle("", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
-	r.Handle("/", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
-	r.Handle("", types.ErrorHandler(controller.LogOutHandler)).Methods("DELETE")
-	r.Handle("/", types.ErrorHandler(controller.LogOutHandler)).Methods("DELETE")
+	r.Handle("/auth", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
+	r.Handle("/auth", types.ErrorHandler(controller.LogOutHandler)).Methods("DELETE")
 
 	// project collection
 
