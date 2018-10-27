@@ -16,6 +16,7 @@ func GetServer() *negroni.Negroni {
 	r := mux.NewRouter()
 
 	r.Handle("", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
+	r.Handle("/", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
 	r.Handle("", types.ErrorHandler(controller.LogOutHandler)).Methods("DELETE")
 
 	// project collection
