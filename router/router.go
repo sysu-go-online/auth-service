@@ -18,6 +18,7 @@ func GetServer() *negroni.Negroni {
 	r.Handle("", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
 	r.Handle("/", types.ErrorHandler(controller.LogInHandler)).Methods("POST")
 	r.Handle("", types.ErrorHandler(controller.LogOutHandler)).Methods("DELETE")
+	r.Handle("/", types.ErrorHandler(controller.LogOutHandler)).Methods("DELETE")
 
 	// project collection
 
